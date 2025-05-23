@@ -7,7 +7,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var exercisesRouter = require("./routes/exercises");
-var todosRouter = require(".routes/todos");
+var todosRouter = require("./routes/todos");
 
 mongoose.connect(
   "mongodb+srv://mgronna:1AbZXa9ouBsfXJTi@magr0090.a9f00.mongodb.net/trainingAppDB?retryWrites=true&w=majority&appName=magr0090"
