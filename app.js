@@ -2,6 +2,7 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+require("dotenv").config();
 var mongoose = require("mongoose");
 var logger = require("morgan");
 var cors = require("cors");
@@ -10,9 +11,8 @@ var indexRouter = require("./routes/index");
 var exercisesRouter = require("./routes/exercises");
 var todosRouter = require("./routes/todos");
 
-mongoose.connect(
-  "mongodb+srv://mgronna:1AbZXa9ouBsfXJTi@magr0090.a9f00.mongodb.net/trainingAppDB?retryWrites=true&w=majority&appName=magr0090"
-);
+mongoose.connect(process.env.MONGO_URI); // hämtar från env-variabel
+
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", (callback) => console.log("Kopplingen Lyckades"));
